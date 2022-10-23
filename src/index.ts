@@ -1019,7 +1019,7 @@ export class BufferedChangeset implements IChangeset {
 
       // 'user.name'
       const normalizedBaseChanges = normalizeObject(baseChanges);
-      if (this.isObject(normalizedBaseChanges)) {
+      if (this.isObject(normalizedBaseChanges) || Array.isArray(normalizedBaseChanges)) {
         const result = this.maybeUnwrapProxy(
           this.getDeep(normalizedBaseChanges, remaining.join('.'))
         );
